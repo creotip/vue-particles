@@ -16,6 +16,7 @@
     :hoverMode="hoverMode"
     :clickEffect="clickEffect"
     :clickMode="clickMode"
+    :particlesData="particlesData"
   ></div>
 </template>
 <script>
@@ -82,6 +83,10 @@
       clickMode: {
         type: String,
         default: 'push'
+      },
+      particlesData: {
+        type: Object,
+        default: null
       }
     },
     mounted () {
@@ -103,7 +108,8 @@
           this.hoverEffect,
           this.hoverMode,
           this.clickEffect,
-          this.clickMode
+          this.clickMode,
+          this.particlesData
         )
       })
     },
@@ -123,8 +129,10 @@
         hoverEffect,
         hoverMode,
         clickEffect,
-        clickMode
+        clickMode,
+        particlesData
       ) {
+        if( particlesData === null ){
         particlesJS('particles-js', {
           "particles": {
             "number": {
@@ -237,6 +245,9 @@
           },
           "retina_detect": true
         });
+        } else {
+          particlesJS('particles-js', particlesData );
+        }
       }
 
     }
