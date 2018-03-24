@@ -1,26 +1,26 @@
 <template>
   <div
-    class="particles-js"
-    :id="id"
-    :color="color"
-    :particleOpacity="particleOpacity"
-    :linesColor="linesColor"
-    :particlesNumber="particlesNumber"
-    :shapeType="shapeType"
-    :particleSize="particleSize"
-    :linesWidth="linesWidth"
-    :lineLinked="lineLinked"
-    :lineOpacity="lineOpacity"
-    :linesDistance="linesDistance"
-    :moveSpeed="moveSpeed"
-    :hoverEffect="hoverEffect"
-    :hoverMode="hoverMode"
-    :clickEffect="clickEffect"
-    :clickMode="clickMode"
+    class='particles-js'
+    :id='id'
+    :color='color'
+    :particleOpacity='particleOpacity'
+    :linesColor='linesColor'
+    :particlesNumber='particlesNumber'
+    :shapeType='shapeType'
+    :particleSize='particleSize'
+    :linesWidth='linesWidth'
+    :lineLinked='lineLinked'
+    :lineOpacity='lineOpacity'
+    :linesDistance='linesDistance'
+    :moveSpeed='moveSpeed'
+    :hoverEffect='hoverEffect'
+    :hoverMode='hoverMode'
+    :clickEffect='clickEffect'
+    :clickMode='clickMode'
   ></div>
 </template>
+
 <script>
-  /* eslint-disable */
   export default {
     name: 'vue-particles',
     data: function () {
@@ -30,7 +30,6 @@
     },
     props: {
       color: {
-        type: String,
         default: '#dedede'
       },
       particleOpacity: {
@@ -131,121 +130,124 @@
         clickEffect,
         clickMode
       ) {
-        particlesJS(this.id, {
-          "particles": {
-            "number": {
-              "value": particlesNumber,
-              "density": {
-                "enable": true,
-                "value_area": 800
+        particlesJS(this.id, { // eslint-disable-line
+          'particles': {
+            'number': {
+              'value': particlesNumber,
+              'density': {
+                'enable': true,
+                'value_area': 800
               }
             },
-            "color": {
-              "value": color
+            'color': {
+              'value': color
             },
-            "shape": {
+            'shape': {
               // circle, edge, triangle, polygon, star, image
-              "type": shapeType,
-              "stroke": {
-                "width": 0,
-                "color": "#192231"
+              'type': shapeType,
+              'stroke': {
+                'width': 0,
+                'color': '#192231'
               },
-              "polygon": {
-                "nb_sides": 5
+              'polygon': {
+                'nb_sides': 5
               }
             },
-            "opacity": {
-              "value": particleOpacity,
-              "random": false,
-              "anim": {
-                "enable": false,
-                "speed": 1,
-                "opacity_min": 0.1,
-                "sync": false
+            'opacity': {
+              'value': particleOpacity,
+              'random': false,
+              'anim': {
+                'enable': false,
+                'speed': 1,
+                'opacity_min': 0.1,
+                'sync': false
               }
             },
-            "size": {
-              "value": particleSize,
-              "random": true,
-              "anim": {
-                "enable": false,
-                "speed": 40,
-                "size_min": 0.1,
-                "sync": false
+            'size': {
+              'value': particleSize,
+              'random': true,
+              'anim': {
+                'enable': false,
+                'speed': 40,
+                'size_min': 0.1,
+                'sync': false
               }
             },
-            "line_linked": {
-              "enable": lineLinked,
-              "distance": linesDistance,
-              "color": linesColor,
-              "opacity": lineOpacity,
-              "width": linesWidth
+            'line_linked': {
+              'enable': lineLinked,
+              'distance': linesDistance,
+              'color': linesColor,
+              'opacity': lineOpacity,
+              'width': linesWidth
             },
-            "move": {
-              "enable": true,
-              "speed": moveSpeed,
-              "direction": "none",
-              "random": false,
-              "straight": false,
-              "out_mode": "out",
-              "bounce": false,
-              "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
+            'move': {
+              'enable': true,
+              'speed': moveSpeed,
+              'direction': 'none',
+              'random': false,
+              'straight': false,
+              'out_mode': 'out',
+              'bounce': false,
+              'attract': {
+                'enable': false,
+                'rotateX': 600,
+                'rotateY': 1200
               }
             }
           },
-          "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-              "onhover": {
-                "enable": hoverEffect,
-                "mode": hoverMode
+          'interactivity': {
+            'detect_on': 'canvas',
+            'events': {
+              'onhover': {
+                'enable': hoverEffect,
+                'mode': hoverMode
               },
-              "onclick": {
-                "enable": clickEffect,
-                "mode": clickMode
+              'onclick': {
+                'enable': clickEffect,
+                'mode': clickMode
               },
-              "onresize": {
+              'onresize': {
 
-                "enable": true,
-                "density_auto": true,
-                "density_area": 400
+                'enable': true,
+                'density_auto': true,
+                'density_area': 400
 
               }
             },
-            "modes": {
-              "grab": {
-                "distance": 140,
-                "line_linked": {
-                  "opacity": 1
+            'modes': {
+              'grab': {
+                'distance': 140,
+                'line_linked': {
+                  'opacity': 1
                 }
               },
-              "bubble": {
-                "distance": 400,
-                "size": 40,
-                "duration": 2,
-                "opacity": 8,
-                "speed": 3
+              'bubble': {
+                'distance': 400,
+                'size': 40,
+                'duration': 2,
+                'opacity': 8,
+                'speed': 3
               },
-              "repulse": {
-                "distance": 200,
-                "duration": 0.4
+              'repulse': {
+                'distance': 200,
+                'duration': 0.4
               },
-              "push": {
-                "particles_nb": 4
+              'push': {
+                'particles_nb': 4
               },
-              "remove": {
-                "particles_nb": 2
+              'remove': {
+                'particles_nb': 2
               }
             }
           },
-          "retina_detect": true
-        });
+          'retina_detect': true
+        })
       }
-
     }
   }
-  /* eslint-disable */
 </script>
+
+<style lang='sass'>
+  .particles-js
+    position: absolute
+</style>
