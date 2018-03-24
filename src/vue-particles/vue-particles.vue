@@ -23,6 +23,8 @@
 </template>
 
 <script>
+  import 'particles.js'
+
   export default {
     name: 'vue-particles',
     data: function () {
@@ -92,27 +94,7 @@
       }
     },
     mounted () {
-      // import particle.js only on client-side
-      require('particles.js')
-      this.$nextTick(() => {
-        this.initParticleJS(
-          this.color,
-          this.particleOpacity,
-          this.particlesNumber,
-          this.shapeType,
-          this.particleSize,
-          this.linesColor,
-          this.linesWidth,
-          this.lineLinked,
-          this.lineOpacity,
-          this.linesDistance,
-          this.moveSpeed,
-          this.hoverEffect,
-          this.hoverMode,
-          this.clickEffect,
-          this.clickMode
-        )
-      })
+      this.initParticleJS()
     },
     methods: {
       initParticleJS () {
