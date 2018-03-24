@@ -27,7 +27,7 @@
 
   export default {
     name: 'vue-particles',
-    data: function () {
+    data () {
       return {
         id: 'particles-instance-' + Math.floor(Math.random() * 5000)
       }
@@ -38,11 +38,11 @@
       },
       particleOpacity: {
         type: Number,
-        default: 0.7
+        default: 1
       },
       particlesNumber: {
         type: Number,
-        default: 80
+        default: 50
       },
       shapeType: {
         type: String,
@@ -215,13 +215,10 @@
   }
 </script>
 
-<style lang='sass' scoped>
-  .particles-js
-    position: absolute
-
-  .fade-enter-active, .fade-leave-active 
-    transition: opacity .5s
-  
-  .fade-enter, .fade-leave-to
-    opacity: 0
+<style lang='scss' scoped>
+  .particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 </style>
