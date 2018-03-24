@@ -4,7 +4,7 @@
     <div class="wrap-banner">
       <div class="main-title">
         <h2>
-          Vue-Particles
+          Multi-Vue-Particles
         </h2>
         <p class="subtitle">
           Vue.js component for particles backgrounds
@@ -16,21 +16,57 @@
         <a class="gh-button" target="_blank" href="https://github.com/creotip/vue-particles"><span class="gh-button__icon"></span>Download</a>
       </div>
       <vue-particles
-        color="#ffffff"
-        :particleOpacity="0.7"
-        linesColor="#ffffff"
-        :particlesNumber="80"
+        color="#f44253"
+        :particleOpacity="1"
+        linesColor="#f44253"
+        :particlesNumber="20"
         shapeType="circle"
         :particleSize="5"
         :linesWidth="2"
         :lineLinked="true"
-        :lineOpacity="0.4"
+        :lineOpacity="1"
         :linesDistance="150"
         :moveSpeed="3"
         :hoverEffect="true"
         hoverMode="grab"
         :clickEffect="true"
         clickMode="push"
+      >
+      </vue-particles>
+      <vue-particles
+        color="#fff"
+        :particleOpacity="1"
+        linesColor="#fff"
+        :particlesNumber="20"
+        shapeType="square"
+        :particleSize="5"
+        :linesWidth="2"
+        :lineLinked="true"
+        :lineOpacity="1"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="repulse"
+        :clickEffect="true"
+        clickMode="push"
+      >
+      </vue-particles>
+      <vue-particles
+        color="#238bd1"
+        :particleOpacity="1"
+        linesColor="#238bd1"
+        :particlesNumber="20"
+        shapeType="star"
+        :particleSize="5"
+        :linesWidth="2"
+        :lineLinked="true"
+        :lineOpacity="1"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="bubble"
+        :clickEffect="true"
+        clickMode="bubble"
       >
       </vue-particles>
 
@@ -145,7 +181,7 @@
   }
 
   .particles-js {
-    background-image: url("./assets/sky.jpg");
+    // background-image: url("./assets/sky.jpg");
     background-size: cover;
     position: absolute;
     top: 0;
