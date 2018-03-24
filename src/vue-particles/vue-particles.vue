@@ -1,23 +1,25 @@
 <template>
-  <div
-    class='particles-js'
-    :id='id'
-    :color='color'
-    :particleOpacity='particleOpacity'
-    :linesColor='linesColor'
-    :particlesNumber='particlesNumber'
-    :shapeType='shapeType'
-    :particleSize='particleSize'
-    :linesWidth='linesWidth'
-    :lineLinked='lineLinked'
-    :lineOpacity='lineOpacity'
-    :linesDistance='linesDistance'
-    :moveSpeed='moveSpeed'
-    :hoverEffect='hoverEffect'
-    :hoverMode='hoverMode'
-    :clickEffect='clickEffect'
-    :clickMode='clickMode'
-  ></div>
+  <transition name="fade">
+    <div
+      class='particles-js'
+      :id='id'
+      :color='color'
+      :particleOpacity='particleOpacity'
+      :linesColor='linesColor'
+      :particlesNumber='particlesNumber'
+      :shapeType='shapeType'
+      :particleSize='particleSize'
+      :linesWidth='linesWidth'
+      :lineLinked='lineLinked'
+      :lineOpacity='lineOpacity'
+      :linesDistance='linesDistance'
+      :moveSpeed='moveSpeed'
+      :hoverEffect='hoverEffect'
+      :hoverMode='hoverMode'
+      :clickEffect='clickEffect'
+      :clickMode='clickMode'
+    ></div>
+  </transition>
 </template>
 
 <script>
@@ -113,38 +115,22 @@
       })
     },
     methods: {
-      initParticleJS (
-        color,
-        particleOpacity,
-        particlesNumber,
-        shapeType,
-        particleSize,
-        linesColor,
-        linesWidth,
-        lineLinked,
-        lineOpacity,
-        linesDistance,
-        moveSpeed,
-        hoverEffect,
-        hoverMode,
-        clickEffect,
-        clickMode
-      ) {
+      initParticleJS () {
         particlesJS(this.id, { // eslint-disable-line
           'particles': {
             'number': {
-              'value': particlesNumber,
+              'value': this.particlesNumber,
               'density': {
                 'enable': true,
                 'value_area': 800
               }
             },
             'color': {
-              'value': color
+              'value': this.color
             },
             'shape': {
               // circle, edge, triangle, polygon, star, image
-              'type': shapeType,
+              'type': this.shapeType,
               'stroke': {
                 'width': 0,
                 'color': '#192231'
@@ -154,7 +140,7 @@
               }
             },
             'opacity': {
-              'value': particleOpacity,
+              'value': this.particleOpacity,
               'random': false,
               'anim': {
                 'enable': false,
@@ -164,7 +150,7 @@
               }
             },
             'size': {
-              'value': particleSize,
+              'value': this.particleSize,
               'random': true,
               'anim': {
                 'enable': false,
@@ -174,15 +160,15 @@
               }
             },
             'line_linked': {
-              'enable': lineLinked,
-              'distance': linesDistance,
-              'color': linesColor,
-              'opacity': lineOpacity,
-              'width': linesWidth
+              'enable': this.lineLinked,
+              'distance': this.linesDistance,
+              'color': this.linesColor,
+              'opacity': this.lineOpacity,
+              'width': this.linesWidth
             },
             'move': {
               'enable': true,
-              'speed': moveSpeed,
+              'speed': this.moveSpeed,
               'direction': 'none',
               'random': false,
               'straight': false,
@@ -199,12 +185,12 @@
             'detect_on': 'canvas',
             'events': {
               'onhover': {
-                'enable': hoverEffect,
-                'mode': hoverMode
+                'enable': this.hoverEffect,
+                'mode': this.hoverMode
               },
               'onclick': {
-                'enable': clickEffect,
-                'mode': clickMode
+                'enable': this.clickEffect,
+                'mode': this.clickMode
               },
               'onresize': {
 
@@ -247,7 +233,13 @@
   }
 </script>
 
-<style lang='sass'>
+<style lang='sass' scoped>
   .particles-js
     position: absolute
+
+  .fade-enter-active, .fade-leave-active 
+    transition: opacity .5s
+  
+  .fade-enter, .fade-leave-to
+    opacity: 0
 </style>
