@@ -1,5 +1,5 @@
 {
-  "name": "vue-particles",
+  "name": "multi-vue-particles",
   "version": "1.0.9",
   "description": "Vue.js component for particles backgrounds",
   "author": "creotip@gmail.com",
@@ -89,5 +89,9 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fouratj/vue-particles.git"
+  }
 }
