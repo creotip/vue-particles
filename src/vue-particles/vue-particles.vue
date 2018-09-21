@@ -7,6 +7,7 @@
     :linesColor="linesColor"
     :particlesNumber="particlesNumber"
     :shapeType="shapeType"
+    :shapeOptions="shapeOptions"
     :particleSize="particleSize"
     :linesWidth="linesWidth"
     :lineLinked="lineLinked"
@@ -44,6 +45,10 @@
       shapeType: {
         type: String,
         default: 'circle'
+      },
+      shapeOptions: {
+        type: Object,
+        default: {}
       },
       particleSize: {
         type: Number,
@@ -99,6 +104,7 @@
           this.particleOpacity,
           this.particlesNumber,
           this.shapeType,
+          this.shapeOptions,
           this.particleSize,
           this.linesColor,
           this.linesWidth,
@@ -119,6 +125,7 @@
         particleOpacity,
         particlesNumber,
         shapeType,
+        shapeOptions,
         particleSize,
         linesColor,
         linesWidth,
@@ -152,7 +159,8 @@
               },
               "polygon": {
                 "nb_sides": 5
-              }
+              },
+              ...shapeOptions
             },
             "opacity": {
               "value": particleOpacity,
