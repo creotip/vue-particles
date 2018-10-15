@@ -134,6 +134,14 @@ Vue.use(VueParticles)
           </td>
         </tr>
         <tr>
+          <td data-th="Name">move</td>
+          <td data-th="Type">Boolean</td>
+          <td data-th="Default">true</td>
+          <td data-th="Description">
+            Particles movement
+          </td>
+        </tr>
+        <tr>
           <td data-th="Name">moveSpeed</td>
           <td data-th="Type">Number</td>
           <td data-th="Default">3</td>
