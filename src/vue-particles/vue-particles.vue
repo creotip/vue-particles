@@ -12,6 +12,7 @@
     :lineLinked="lineLinked"
     :lineOpacity="lineOpacity"
     :linesDistance="linesDistance"
+    :move="move"
     :moveSpeed="moveSpeed"
     :hoverEffect="hoverEffect"
     :hoverMode="hoverMode"
@@ -69,6 +70,10 @@
         type: Number,
         default: 150
       },
+      move: {
+        type: Boolean,
+        default: true
+      },
       moveSpeed: {
         type: Number,
         default: 3
@@ -105,6 +110,7 @@
           this.lineLinked,
           this.lineOpacity,
           this.linesDistance,
+          this.move,
           this.moveSpeed,
           this.hoverEffect,
           this.hoverMode,
@@ -125,6 +131,7 @@
         lineLinked,
         lineOpacity,
         linesDistance,
+        move,
         moveSpeed,
         hoverEffect,
         hoverMode,
@@ -182,7 +189,7 @@
               "width": linesWidth
             },
             "move": {
-              "enable": true,
+              "enable": move,
               "speed": moveSpeed,
               "direction": "none",
               "random": false,
