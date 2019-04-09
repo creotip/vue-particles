@@ -25,8 +25,12 @@
     name: 'vue-particles',
     data: function () {
       return {
-        id: 'particles-instance-' + Math.floor(Math.random() * 5000)
+        id: 'particles-instance-' + Math.floor(Math.random() * 5000),
+        options: {}
       }
+    },
+    created () {
+      this.options = {...this.$props };
     },
     props: {
       color: {
@@ -94,58 +98,30 @@
       // import particle.js only on client-side
       require('particles.js')
       this.$nextTick(() => {
-        this.initParticleJS(
-          this.color,
-          this.particleOpacity,
-          this.particlesNumber,
-          this.shapeType,
-          this.particleSize,
-          this.linesColor,
-          this.linesWidth,
-          this.lineLinked,
-          this.lineOpacity,
-          this.linesDistance,
-          this.moveSpeed,
-          this.hoverEffect,
-          this.hoverMode,
-          this.clickEffect,
-          this.clickMode
-        )
+        this.initParticleJS(this.options)
       })
     },
     methods: {
-      initParticleJS (
-        color,
-        particleOpacity,
-        particlesNumber,
-        shapeType,
-        particleSize,
-        linesColor,
-        linesWidth,
-        lineLinked,
-        lineOpacity,
-        linesDistance,
-        moveSpeed,
-        hoverEffect,
-        hoverMode,
-        clickEffect,
-        clickMode
-      ) {
+      reload(options={}) {
+        options = { ...this.options, ...options }
+        this.initParticleJS(options);
+      },
+      initParticleJS (options) {
         particlesJS(this.id, {
           "particles": {
             "number": {
-              "value": particlesNumber,
+              "value": options.particlesNumber,
               "density": {
                 "enable": true,
                 "value_area": 800
               }
             },
             "color": {
-              "value": color
+              "value": options.color
             },
             "shape": {
               // circle, edge, triangle, polygon, star, image
-              "type": shapeType,
+              "type": options.shapeType,
               "stroke": {
                 "width": 0,
                 "color": "#192231"
@@ -155,7 +131,7 @@
               }
             },
             "opacity": {
-              "value": particleOpacity,
+              "value": options.particleOpacity,
               "random": false,
               "anim": {
                 "enable": false,
@@ -165,7 +141,7 @@
               }
             },
             "size": {
-              "value": particleSize,
+              "value": options.particleSize,
               "random": true,
               "anim": {
                 "enable": false,
@@ -175,15 +151,15 @@
               }
             },
             "line_linked": {
-              "enable": lineLinked,
-              "distance": linesDistance,
-              "color": linesColor,
-              "opacity": lineOpacity,
-              "width": linesWidth
+              "enable": options.lineLinked,
+              "distance": options.linesDistance,
+              "color": options.linesColor,
+              "opacity": options.lineOpacity,
+              "width": options.linesWidth
             },
             "move": {
               "enable": true,
-              "speed": moveSpeed,
+              "speed": options.moveSpeed,
               "direction": "none",
               "random": false,
               "straight": false,
@@ -200,12 +176,12 @@
             "detect_on": "canvas",
             "events": {
               "onhover": {
-                "enable": hoverEffect,
-                "mode": hoverMode
+                "enable": options.hoverEffect,
+                "mode": options.hoverMode
               },
               "onclick": {
-                "enable": clickEffect,
-                "mode": clickMode
+                "enable": options.clickEffect,
+                "mode": options.clickMode
               },
               "onresize": {
 
