@@ -179,7 +179,27 @@ Vue.use(VueParticles)
     </div>
 
 
-
+    <div class="wrap-code text-left">
+      <h4 class="white">
+        reload() call method example
+      </h4>
+      <pre class="language-html">
+        <code>
+{{appCodeRef}}
+        </code>
+      </pre>
+      <pre class="language-js">
+        <code>
+export default {
+  mounted() {
+    // If no new options are passed, init options still used
+    this.$refs["vue-particles-component"].reload({ color: "#fff" })
+  }
+}
+        </code>
+      </pre>
+    </div>
+    <br>
 
   </div>
 </template>
@@ -212,13 +232,20 @@ Vue.use(VueParticles)
         </vue-particles>
       </div>
    </template>`
+
+   const appCodeRef = `<template>
+      <div id="app">
+        <vue-particles ref="vue-particles-component"></vue-particles>
+      </div>
+   </template>`
     /* eslint-disable */
   export default {
     name: 'main-content',
     data () {
       return {
         appCode,
-        appCodeFull
+        appCodeFull,
+        appCodeRef
       }
     }
   }
