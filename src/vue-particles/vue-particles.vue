@@ -17,6 +17,7 @@
     :hoverMode="hoverMode"
     :clickEffect="clickEffect"
     :clickMode="clickMode"
+    :detectOn="detectOn"
   ></div>
 </template>
 <script>
@@ -88,6 +89,10 @@
       clickMode: {
         type: String,
         default: 'push'
+      },
+      detectOn: {
+        type: String,
+        default: 'canvas'
       }
     },
     mounted () {
@@ -109,7 +114,8 @@
           this.hoverEffect,
           this.hoverMode,
           this.clickEffect,
-          this.clickMode
+          this.clickMode,
+          this.detectOn
         )
       })
     },
@@ -129,7 +135,8 @@
         hoverEffect,
         hoverMode,
         clickEffect,
-        clickMode
+        clickMode,
+        detectOn,
       ) {
         particlesJS(this.id, {
           "particles": {
@@ -197,7 +204,7 @@
             }
           },
           "interactivity": {
-            "detect_on": "canvas",
+            "detect_on": detectOn,
             "events": {
               "onhover": {
                 "enable": hoverEffect,

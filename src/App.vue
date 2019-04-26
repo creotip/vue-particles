@@ -31,6 +31,7 @@
         hoverMode="grab"
         :clickEffect="true"
         clickMode="push"
+        detectOn="canvas"
       >
       </vue-particles>
 
