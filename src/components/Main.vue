@@ -175,6 +175,15 @@ Vue.use(VueParticles)
             "push", "remove", "repulse", "bubble"
           </td>
         </tr>
+        <tr>
+          <td data-th="Name">detectOn</td>
+          <td data-th="Type">String</td>
+          <td data-th="Default">canvas</td>
+          <td data-th="Description">
+            Available detect on:
+            "canvas", "window"
+          </td>
+        </tr>
       </table>
     </div>
 
