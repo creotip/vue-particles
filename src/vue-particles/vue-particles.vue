@@ -169,7 +169,7 @@
         tsParticles.load(this.id, {
             fps_limit: 60,
             interactivity: {
-              detect_on: InteractivityDetect.canvas,
+              detect_on: 'canvas',
               events: {
                 onclick: {
                   enable: clickEffect,
@@ -229,9 +229,9 @@
                   rotateY: 3000,
                 },
                 bounce: false,
-                direction: MoveDirection.none,
+                direction: 'none',
                 enable: true,
-                out_mode: OutMode.out,
+                out_mode: 'out',
                 random: false,
                 speed: moveSpeed,
                 straight: false,
