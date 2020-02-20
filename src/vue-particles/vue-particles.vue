@@ -91,10 +91,10 @@
       }
     },
     mounted () {
-      // import particle.js only on client-side
-      require('particles.js')
+      // import tsParticles only on client-side
+      require('tsparticles');
       this.$nextTick(() => {
-        this.initParticleJS(
+        this.initTsParticles(
           this.color,
           this.particleOpacity,
           this.particlesNumber,
@@ -131,118 +131,165 @@
         clickEffect,
         clickMode
       ) {
-        particlesJS(this.id, {
-          "particles": {
-            "number": {
-              "value": particlesNumber,
-              "density": {
-                "enable": true,
-                "value_area": 800
-              }
-            },
-            "color": {
-              "value": color
-            },
-            "shape": {
-              // circle, edge, triangle, polygon, star, image
-              "type": shapeType,
-              "stroke": {
-                "width": 0,
-                "color": "#192231"
+        this.initTsParticles(
+          color,
+          particleOpacity,
+          particlesNumber,
+          shapeType,
+          particleSize,
+          linesColor,
+          linesWidth,
+          lineLinked,
+          lineOpacity,
+          linesDistance,
+          moveSpeed,
+          hoverEffect,
+          hoverMode,
+          clickEffect,
+          clickMode
+        );
+      },
+      initTsParticles: function (
+        color,
+        particleOpacity,
+        particlesNumber,
+        shapeType,
+        particleSize,
+        linesColor,
+        linesWidth,
+        lineLinked,
+        lineOpacity,
+        linesDistance,
+        moveSpeed,
+        hoverEffect,
+        hoverMode,
+        clickEffect,
+        clickMode
+      ) {
+        tsParticles.load(this.id, {
+            fps_limit: 60,
+            interactivity: {
+              detect_on: 'canvas',
+              events: {
+                onclick: {
+                  enable: clickEffect,
+                  mode: clickMode,
+                },
+                onhover: {
+                  enable: hoverEffect,
+                  mode: hoverMode,
+                  parallax: {
+                    enable: false,
+                    force: 2,
+                    smooth: 10,
+                  },
+                },
+                resize: true,
               },
-              "polygon": {
-                "nb_sides": 5
-              }
+              modes: {
+                bubble: {
+                  distance: 200,
+                  duration: 0.4,
+                  opacity: 1,
+                  size: 80,
+                },
+                grab: {
+                  distance: 100,
+                  line_linked: {
+                    opacity: 1,
+                  },
+                },
+                push: {
+                  particles_nb: 4,
+                },
+                remove: {
+                  particles_nb: 2,
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
+                },
+              },
             },
-            "opacity": {
-              "value": particleOpacity,
-              "random": false,
-              "anim": {
-                "enable": false,
-                "speed": 1,
-                "opacity_min": 0.1,
-                "sync": false
-              }
+            particles: {
+              color: {
+                value: color,
+              },
+              line_linked: {
+                enable: lineLinked,
+                distance: linesDistance,
+                color: linesColor,
+                opacity: lineOpacity,
+                width: linesWidth
+              },
+              move: {
+                attract: {
+                  enable: false,
+                  rotateX: 3000,
+                  rotateY: 3000,
+                },
+                bounce: false,
+                direction: 'none',
+                enable: true,
+                out_mode: 'out',
+                random: false,
+                speed: moveSpeed,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  value_area: 800,
+                },
+                value: particlesNumber,
+              },
+              opacity: {
+                anim: {
+                  enable: false,
+                  opacity_min: 0.1,
+                  speed: 1,
+                  sync: false,
+                },
+                random: false,
+                value: particleOpacity,
+              },
+              shape: {
+                character: {
+                  fill: false,
+                  font: "Verdana",
+                  style: "",
+                  value: "*",
+                  weight: "400",
+                },
+                image: {
+                  height: 100,
+                  replace_color: true,
+                  src: "",
+                  width: 100,
+                },
+                polygon: {
+                  nb_sides: 5,
+                },
+                stroke: {
+                  color: "#ff0000",
+                  width: 0,
+                },
+                type: shapeType,
+              },
+              size: {
+                anim: {
+                  enable: false,
+                  size_min: 0.1,
+                  speed: 40,
+                  sync: false,
+                },
+                random: true,
+                value: particleSize,
+              },
             },
-            "size": {
-              "value": particleSize,
-              "random": true,
-              "anim": {
-                "enable": false,
-                "speed": 40,
-                "size_min": 0.1,
-                "sync": false
-              }
-            },
-            "line_linked": {
-              "enable": lineLinked,
-              "distance": linesDistance,
-              "color": linesColor,
-              "opacity": lineOpacity,
-              "width": linesWidth
-            },
-            "move": {
-              "enable": true,
-              "speed": moveSpeed,
-              "direction": "none",
-              "random": false,
-              "straight": false,
-              "out_mode": "out",
-              "bounce": false,
-              "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-              }
-            }
-          },
-          "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-              "onhover": {
-                "enable": hoverEffect,
-                "mode": hoverMode
-              },
-              "onclick": {
-                "enable": clickEffect,
-                "mode": clickMode
-              },
-              "onresize": {
-
-                "enable": true,
-                "density_auto": true,
-                "density_area": 400
-
-              }
-            },
-            "modes": {
-              "grab": {
-                "distance": 140,
-                "line_linked": {
-                  "opacity": 1
-                }
-              },
-              "bubble": {
-                "distance": 400,
-                "size": 40,
-                "duration": 2,
-                "opacity": 8,
-                "speed": 3
-              },
-              "repulse": {
-                "distance": 200,
-                "duration": 0.4
-              },
-              "push": {
-                "particles_nb": 4
-              },
-              "remove": {
-                "particles_nb": 2
-              }
-            }
-          },
-          "retina_detect": true
-        });
+            retina_detect: false,
+          }
+        );
       }
 
     }

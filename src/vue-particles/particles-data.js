@@ -1,122 +1,134 @@
 const particlesData = {
-    "particles": {
-        "number": {
-            "value": 80,
-            "density": {
-                "enable": true,
-                "value_area": 800
-            }
-        },
-        "color": {
-            "value": "#9E9E9E"
-        },
-        "shape": {
-            "type": "circle",
-            "stroke": {
-                "width": 0,
-                "color": "#000000"
-            },
-            "polygon": {
-                "nb_sides": 5
-            },
-            "image": {
-                "src": "img/github.svg",
-                "width": 100,
-                "height": 100
-            }
-        },
-        "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": {
-                "enable": false,
-                "speed": 1,
-                "opacity_min": 0.1,
-                "sync": false
-            }
-        },
-        "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-                "enable": false,
-                "speed": 40,
-                "size_min": 0.1,
-                "sync": false
-            }
-        },
-        "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#ffffff",
-            "opacity": 0.4,
-            "width": 1
-        },
-
-        "move": {
-            "enable": true,
-            "speed": 2,
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-            }
+  fps_limit: 60,
+  interactivity: {
+    detect_on: 'canvas',
+    events: {
+      onclick: {
+        enable: true,
+        mode: 'push'
+      },
+      onhover: {
+        enable: true,
+        mode: 'grab',
+        parallax: {
+          enable: false,
+          force: 2,
+          smooth: 10
         }
+      },
+      resize: true
     },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": {
-                "enable": true,
-                "mode": "grab"
-            },
-            "onclick": {
-                "enable": true,
-                "mode": "push"
-            },
-            "resize": true
-        },
-        "modes": {
-            "grab": {
-                "distance": 100,
-                "line_linked": {
-                    "opacity": 1
-                }
-            },
-            "bubble": {
-                "distance": 400,
-                "size": 40,
-                "duration": 2,
-                "opacity": 8,
-                "speed": 3
-            },
-            "repulse": {
-                "distance": 200
-            },
-            "push": {
-                "particles_nb": 4
-            },
-            "remove": {
-                "particles_nb": 2
-            }
+    modes: {
+      bubble: {
+        distance: 200,
+        duration: 0.4,
+        opacity: 1,
+        size: 80
+      },
+      grab: {
+        distance: 100,
+        line_linked: {
+          opacity: 1
         }
-    },
-
-    "retina_detect": true,
-    "config_demo": {
-        "hide_card": false,
-        "background_color": "#b61924",
-        "background_image": "",
-        "background_position": "50% 50%",
-        "background_repeat": "no-repeat",
-        "background_size": "cover"
+      },
+      push: {
+        particles_nb: 4
+      },
+      remove: {
+        particles_nb: 2
+      },
+      repulse: {
+        distance: 200,
+        duration: 0.4
+      }
     }
+  },
+  particles: {
+    color: {
+      value: '#fff'
+    },
+    line_linked: {
+      color: '#fff',
+      distance: 100,
+      enable: true,
+      opacity: 1,
+      width: 1
+    },
+    move: {
+      attract: {
+        enable: false,
+        rotateX: 3000,
+        rotateY: 3000
+      },
+      bounce: false,
+      direction: 'none',
+      enable: true,
+      out_mode: 'out',
+      random: false,
+      speed: 2,
+      straight: false
+    },
+    number: {
+      density: {
+        enable: true,
+        value_area: 800
+      },
+      value: 400
+    },
+    opacity: {
+      anim: {
+        enable: false,
+        opacity_min: 0,
+        speed: 2,
+        sync: false
+      },
+      random: false,
+      value: 1
+    },
+    shape: {
+      character: {
+        fill: false,
+        font: 'Verdana',
+        style: '',
+        value: '*',
+        weight: '400'
+      },
+      image: {
+        height: 100,
+        replace_color: true,
+        src: '',
+        width: 100
+      },
+      polygon: {
+        nb_sides: 5
+      },
+      stroke: {
+        color: '#ff0000',
+        width: 0
+      },
+      type: 'circle'
+    },
+    size: {
+      anim: {
+        enable: false,
+        size_min: 0,
+        speed: 20,
+        sync: false
+      },
+      random: false,
+      value: 20
+    }
+  },
+  retina_detect: false,
+  config_demo: {
+    hide_card: false,
+    background_color: '#b61924',
+    background_image: '',
+    background_position: '50% 50%',
+    background_repeat: 'no-repeat',
+    background_size: 'cover'
+  }
 }
-
 
 export {
     particlesData
