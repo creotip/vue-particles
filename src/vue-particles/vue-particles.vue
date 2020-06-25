@@ -17,6 +17,7 @@
     :hoverMode="hoverMode"
     :clickEffect="clickEffect"
     :clickMode="clickMode"
+    :moveDirection="moveDirection"
   ></div>
 </template>
 <script>
@@ -88,6 +89,10 @@
       clickMode: {
         type: String,
         default: 'push'
+      },
+      moveDirection: {
+        type: String,
+        default: 'none'
       }
     },
     mounted () {
@@ -95,21 +100,22 @@
       require('particles.js')
       this.$nextTick(() => {
         this.initParticleJS(
-          this.color,
-          this.particleOpacity,
-          this.particlesNumber,
-          this.shapeType,
-          this.particleSize,
-          this.linesColor,
-          this.linesWidth,
-          this.lineLinked,
-          this.lineOpacity,
-          this.linesDistance,
-          this.moveSpeed,
-          this.hoverEffect,
-          this.hoverMode,
-          this.clickEffect,
-          this.clickMode
+                this.color,
+                this.particleOpacity,
+                this.particlesNumber,
+                this.shapeType,
+                this.particleSize,
+                this.linesColor,
+                this.linesWidth,
+                this.lineLinked,
+                this.lineOpacity,
+                this.linesDistance,
+                this.moveSpeed,
+                this.hoverEffect,
+                this.hoverMode,
+                this.clickEffect,
+                this.clickMode,
+                this.moveDirection
         )
       })
     },
@@ -129,7 +135,8 @@
         hoverEffect,
         hoverMode,
         clickEffect,
-        clickMode
+        clickMode,
+        moveDirection
       ) {
         particlesJS(this.id, {
           "particles": {
@@ -184,7 +191,7 @@
             "move": {
               "enable": true,
               "speed": moveSpeed,
-              "direction": "none",
+              "direction": moveDirection,
               "random": false,
               "straight": false,
               "out_mode": "out",
