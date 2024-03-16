@@ -91,8 +91,10 @@
       }
     },
     beforeDestroy () {
-      window.pJSDom[0].pJS.fn.vendors.destroypJS()
-      window.pJSDom = []
+      if (window.pJSDom && window.pJSDom.length) {
+        window.pJSDom[0].pJS.fn.vendors.destroypJS()
+        window.pJSDom = []
+      }
     },
     mounted () {
       // import particle.js only on client-side
